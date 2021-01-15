@@ -1,0 +1,47 @@
+-- Jared Day
+-- 9/25/17
+
+-- Lab 5 pt a - 2 input multiplexer with no enable line. 
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY twoinmux IS
+PORT(
+		i_A		:IN std_logic_vector(5 DOWNTO 0);
+		o_D		:OUT std_logic_vector(7 DOWNTO 0));
+END twoinmux;
+
+ARCHITECTURE ckt of twoinmux IS
+	BEGIN
+		WITH i_A SELECT
+		
+		o_D <=	"000000" WHEN "01111101"
+					"000100" WHEN "10100011"
+					"001010" WHEN "00011101"
+					"001000" WHEN "10010010"
+					"001001" WHEN "00110000"
+					"001110" WHEN "00011101"
+					"001100" WHEN "00010000"
+					"001101" WHEN "00110000"
+					"010000" WHEN "01111001"
+					"010100" WHEN "10101110"
+					"011010" WHEN "10011101"
+					"011000" WHEN "10010110"
+					"011001" WHEN "10110000"
+					"011100" WHEN "01110111"
+					"100000" WHEN "10100010"
+					"100110" WHEN "10011101"
+					"100100" WHEN "10011001"
+					"100101" WHEN "10110000"
+					"101100" WHEN "10101110"
+					"110010" WHEN "10110000"
+					"110000" WHEN "10011100"
+					"110001" WHEN "10010000"
+					"110100" WHEN "01110101"
+					"111000" WHEN "10101110"
+					"111110" WHEN "10011101"
+					"111100" WHEN "10011111"
+					"111101" WHEN "10110000"
+					"000000" WHEN OTHERS;
+END ckt;

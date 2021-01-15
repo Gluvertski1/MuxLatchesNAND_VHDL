@@ -1,0 +1,27 @@
+-- Jared Day
+-- 10/2/17
+
+
+-- This is a 6465 Dual D Flip-Flop Latch. Has enable only (no clock).
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY DFFLatch IS
+PORT(
+		i_en		: IN std_logic;											-- clk input
+		i_D		: IN std_logic_vector(1 DOWNTO 0);					-- two different D's
+		o_Q		: OUT std_logic_vector(1 DOWNTO 0));				-- two different Q's
+		
+END DFFLatch;
+
+ARCHITECTURE arch OF DFFLatch IS
+BEGIN
+	PROCESS (i_en, i_D)
+	BEGIN 
+		IF(i_en = '0') THEN
+			o_Q <= (other => '0');
+		ELSIF (i_en = '1') THEN
+			o_Q <= i_D;
+		END IF;
+END PROCESS;
